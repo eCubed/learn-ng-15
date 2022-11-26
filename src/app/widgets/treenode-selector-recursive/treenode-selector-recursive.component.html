@@ -1,0 +1,12 @@
+<div>
+  <select [ngModel]="selectedTreeNodeAtLevel" (ngModelChange)="onSelectedTreeNodeAtLevelChanged($event)">
+    <option [ngValue]="null">Select Something...</option>
+    <option *ngFor="let treeNode of treeNodes" [ngValue]="treeNode">{{ treeNode.name }}</option>
+  </select>
+
+  <treenode-selector-recursive *ngIf="selectedTreeNodeAtLevel != null && selectedTreeNodeAtLevel.children != null && (selectedTreeNodeAtLevel.children?.length ?? 0) > 0"
+    [tree-nodes]="selectedTreeNodeAtLevel!.children" [tree-node-id]="_treeNodeId"
+    (tree-node-selected-at-level)="onTreeNodeSelectedAmongChildren($event)"
+    ></treenode-selector-recursive>
+
+</div>

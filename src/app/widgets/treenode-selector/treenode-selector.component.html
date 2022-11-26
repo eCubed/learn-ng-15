@@ -1,0 +1,7 @@
+<div>
+  <treenode-selector-recursive *ngIf="(treeNodes.length ?? 0) > 0"
+    [tree-nodes]="treeNodes" [tree-node-id]="treeNodeId"
+    (tree-node-selected-at-level)="onAnyTreeNodeSelected($event)"
+    ></treenode-selector-recursive>
+
+</div>
