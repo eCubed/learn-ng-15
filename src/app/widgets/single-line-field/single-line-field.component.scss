@@ -1,0 +1,22 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+
+  input {
+    padding: var(--padding);
+    border: solid 1px #ccc;
+    border-radius: var(--border-radius);
+  }
+}
+
+:host.ng-invalid {
+
+  input {
+    border-color: var(--error-color);
+  }
+
+  label {
+    color: var(--error-color);
+  }
+}

@@ -2,6 +2,7 @@
 <div [formGroup]="formGroup">
   <theme-switcher></theme-switcher>
   <treenode-selector [tree-nodes]="treeNodes" formControlName="gimmickId"></treenode-selector>
+  <app-single-line-field formControlName="firstName" labelText="First Name"></app-single-line-field>
   <div>
     {{ formGroup.value | json }}
   </div>

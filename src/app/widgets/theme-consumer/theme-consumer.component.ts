@@ -1,5 +1,5 @@
 import { ThemeService } from './../../theming/theme.service';
-import { AfterViewInit, Component, ElementRef, OnDestroy, QueryList, Renderer2, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, Input, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { Theme } from 'src/app/theming/theme';
@@ -14,31 +14,32 @@ import { Theme } from 'src/app/theming/theme';
 export class ThemeConsumerComponent implements AfterViewInit, OnDestroy {
 
   themeSubscription: Subscription
-  @ViewChildren("pTags", { read: ElementRef}) paragraphElements!: QueryList<ElementRef>
+  cssStyle!: Record<string, string | undefined | null>;
 
   currentTheme!: Theme;
 
-  constructor(private themeService: ThemeService,
-              private renderer: Renderer2) {
-    this.themeSubscription = this.themeService.themeChanged$().subscribe((theme) => {
-      console.log(`The chosen theme is: ${theme.name}`)
-      this.currentTheme = theme;
-      
-      if (this.paragraphElements != null) {
-        this.paragraphElements.forEach(pe => {
-          this.renderer.setStyle(pe.nativeElement, 'color', this.currentTheme.mainColor);
-        })
-      }
+  // overridable properties
+  @Input()
+  padding: string | null = null;
 
+  constructor(private themeService: ThemeService) {
+    this.themeSubscription = this.themeService.themeChanged$().subscribe((theme) => {
+      this.currentTheme = theme
+      // this.updateStyles()
     })
   }
 
+  updateStyles() {
+
+   this.cssStyle = {
+    color: this.currentTheme.mainColor,
+    padding: this.padding ?? '1rem'
+   }
+
+  }
 
   ngAfterViewInit(): void {
-    console.log(`cont of html headings: ${this.paragraphElements.length }`)
-    this.paragraphElements.forEach(pe => {
-      this.renderer.setStyle(pe.nativeElement, 'color', this.currentTheme.mainColor);
-    })
+    // this.updateStyles();
   }
 
   ngOnDestroy(): void {
