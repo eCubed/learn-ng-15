@@ -43,14 +43,27 @@ export class TreenodeSelectorRecursiveComponent {
 
   selectedTreeNodeAtLevel: TreeNode | null = null
 
-  onSelectedTreeNodeAtLevelChanged(treeNode: TreeNode) {
-    this.treeNodeId = treeNode?.id
-    this.treeNodeSelectedAtLevel.emit(treeNode)
+  /* This is when the user changes the selection at the level
+  */
+  onSelectedTreeNodeAtLevel(treeNode: TreeNode) {
+    console.log(`onSelectedTreeNodeAtLevel... incoming: ${treeNode?.name ?? 'Null'} selected at level: ${this.selectedTreeNodeAtLevel?.name ?? 'Null'}`)
+    if (treeNode != null) {
+      this.treeNodeId = treeNode?.id
+      this.treeNodeSelectedAtLevel.emit(treeNode)
+    } else {
+      this.treeNodeSelectedAtLevel.emit(treeNode)
+    }
   }
 
-  onTreeNodeSelectedAmongChildren(treeNode: TreeNode) {
-    this.treeNodeId = treeNode?.id
-    this.treeNodeSelectedAtLevel.emit(treeNode)
+  onSelectedTreeNodeFromChildren(treeNode: TreeNode) {
+    console.log(`onSelectedTreeNodeFromChildren... incoming: ${treeNode?.name ?? 'Null'} selected at level: ${this.selectedTreeNodeAtLevel?.name ?? 'Null'}`)
+    if (treeNode != null) {
+      this.treeNodeId = treeNode?.id
+      this.treeNodeSelectedAtLevel.emit(treeNode)
+    } else {
+      this.treeNodeId = this.selectedTreeNodeAtLevel?.id ?? null
+      this.treeNodeSelectedAtLevel.emit(this.selectedTreeNodeAtLevel!)
+    }
   }
 }
 
