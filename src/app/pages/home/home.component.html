@@ -1,18 +1,18 @@
-
-<div [formGroup]="formGroup">
+<theme-switcher></theme-switcher>
+<div class="data-entry" [formGroup]="formGroup">
+  <app-single-line-field formControlName="firstName" labelText="First Name"></app-single-line-field>
+  <errors-display [control]="formGroup.get('firstName')!"></errors-display>
   <!--
-  <theme-switcher></theme-switcher>
+
   -->
   <treenode-selector [tree-nodes]="treeNodes" formControlName="gimmickId"></treenode-selector>
-  <!--
-    <app-single-line-field formControlName="firstName" labelText="First Name"></app-single-line-field>
-    <theme-consumer></theme-consumer>
-  -->
-
   <div>
     {{ formGroup.value | json }}
   </div>
+  <button type="button" [disabled]="!formGroup.valid">Save</button>
 
 </div>
+
+<theme-consumer></theme-consumer>
 
 

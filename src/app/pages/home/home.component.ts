@@ -1,3 +1,4 @@
+import { ErrorsDisplayComponent } from './../../widgets/errors-display/errors-display.component';
 import { SingleLineFieldComponent } from './../../widgets/single-line-field/single-line-field.component';
 import { ThemeSwitcherComponent } from './../../widgets/theme-switcher/theme-switcher.component';
 import { ThemeConsumerComponent } from './../../widgets/theme-consumer/theme-consumer.component';
@@ -17,7 +18,8 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
     ReactiveFormsModule,
     ThemeConsumerComponent,
     ThemeSwitcherComponent,
-    SingleLineFieldComponent
+    SingleLineFieldComponent,
+    ErrorsDisplayComponent
   ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
