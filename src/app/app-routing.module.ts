@@ -1,3 +1,4 @@
+import { ReactiveFormsComponent } from './pages/reactive-forms/reactive-forms.component';
 import { ChangesComponent } from './pages/changes/changes.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -9,7 +10,8 @@ const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
   { path: 'changes', component: ChangesComponent, pathMatch: 'full'},
   { path: 'dynamics', component: DynamicsComponent, pathMatch: 'full'},
-  { path: 'params/:id', component: ParamsComponent, pathMatch: 'full'}
+  { path: 'params/:id', component: ParamsComponent, pathMatch: 'full'},
+  { path: 'reactive-forms', component: ReactiveFormsComponent, pathMatch: 'full'}
 ];
 
 @NgModule({

@@ -1,3 +1,4 @@
+import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -11,6 +12,7 @@ import { ProducingRendererComponent } from './pages/dynamics/producing-renderer/
 import { DowntimeRendererComponent } from './pages/dynamics/downtime-renderer/downtime-renderer.component';
 import { DynamicListContainerComponent } from './pages/dynamics/dynamic-list-container/dynamic-list-container.component';
 import { ParamsComponent } from './pages/params/params.component';
+import { ReactiveFormsComponent } from './pages/reactive-forms/reactive-forms.component';
 ;
 
 @NgModule({
@@ -23,11 +25,13 @@ import { ParamsComponent } from './pages/params/params.component';
     ProducingRendererComponent,
     DowntimeRendererComponent,
     DynamicListContainerComponent,
-    ParamsComponent
+    ParamsComponent,
+    ReactiveFormsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [ThemeService],
   bootstrap: [AppComponent]

@@ -1,0 +1,16 @@
+<div [formGroup]="registration">
+  <div>
+    <label>First Name</label>
+    <input type="text" formControlName="firstName">
+  </div>
+  <div>
+    <label>Last Name</label>
+    <input type="text" formControlName="lastName">
+  </div>
+  <div>
+    <button type="button" (click)="onClickSave()">Save</button>
+  </div>
+</div>
+<pre>
+  {{ registration.value | json }}
+</pre>
