@@ -10,6 +10,7 @@ import { InsertionPointDirective } from './directives/insertion-point.directive'
 import { ProducingRendererComponent } from './pages/dynamics/producing-renderer/producing-renderer.component';
 import { DowntimeRendererComponent } from './pages/dynamics/downtime-renderer/downtime-renderer.component';
 import { DynamicListContainerComponent } from './pages/dynamics/dynamic-list-container/dynamic-list-container.component';
+import { ParamsComponent } from './pages/params/params.component';
 ;
 
 @NgModule({
@@ -21,7 +22,8 @@ import { DynamicListContainerComponent } from './pages/dynamics/dynamic-list-con
     InsertionPointDirective,
     ProducingRendererComponent,
     DowntimeRendererComponent,
-    DynamicListContainerComponent
+    DynamicListContainerComponent,
+    ParamsComponent
   ],
   imports: [
     BrowserModule,
